@@ -1,0 +1,26 @@
+name: CI Sistema Libreria
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # Aquí podrías añadir una prueba si tienes un archivo test.py
+      # - name: Ejecutar pruebas
+      #   run: python -m unittest discover
