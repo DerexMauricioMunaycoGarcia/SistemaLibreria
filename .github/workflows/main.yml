@@ -20,6 +20,10 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          
-      - name: Mensaje de prueba
-        run: echo "Hola profe, esto se ejecuta automáticamente"
+
+      - name: Verificación del sistema
+        run: |
+          echo "Iniciando pipeline"
+          python --version
+          pip --version
+          echo "Validación completada"
